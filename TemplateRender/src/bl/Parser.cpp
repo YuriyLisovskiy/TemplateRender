@@ -1,9 +1,9 @@
-#include "Parser.h"
-#include "Regex.h"
-#include "LoopStatement.h"
-#include "IfStatement.h"
-#include "HTML.h"
-#include "../Config/Config.h"
+#include "../include/Parser.h"
+#include "../include/Regex.h"
+#include "../include/LoopStatement.h"
+#include "../include/IfStatement.h"
+#include "../include/HTML.h"
+#include "../include/Config.h"
 #include <queue>
 
 bool Parser::matchString(const std::string& str, const std::string& regexStr)

@@ -1,5 +1,5 @@
-#include "HTML.h"
-#include "../Utils/RenderError.h"
+#include "../include/HTML.h"
+#include "../include/RenderError.h"
 #include <fstream>
 
 

@@ -1,4 +1,4 @@
-#include "RenderError.h"
+#include "../include/RenderError.h"
 #include <iostream>
 
 std::string RenderError::TEMPLATE = "";

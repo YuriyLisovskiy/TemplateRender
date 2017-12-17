@@ -1,6 +1,6 @@
-#include "TemplateRender.h"
-#include "../BL/HTML.h"
-#include "../Config/Config.h"
+#include "../include/TemplateRender.h"
+#include "../include/HTML.h"
+#include "../include/Config.h"
 #include <iostream>
 
 void TemplateRender::render(const std::string& templatePath, const std::string& htmlPath, Context* data)

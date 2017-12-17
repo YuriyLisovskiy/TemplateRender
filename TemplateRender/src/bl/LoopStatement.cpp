@@ -1,9 +1,7 @@
-#include "LoopStatement.h"
-#include "Regex.h"
-#include "Parser.h"
+#include "../include/LoopStatement.h"
+#include "../include/Regex.h"
+#include "../include/Parser.h"
 #include <regex>
-
-#include <iostream>
 
 std::string LoopStatement::parseForLoop(const std::string& code, forLoopParams& parameters)
 {

@@ -44,9 +44,9 @@ Debug/
 *.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
-!TemplateRender/Tests/Templates/index.html
-!TemplateRender/Tests/Templates/snippet.html
-!TemplateRender/Tests/Media/test.png
+!TemplateRender/test/templates/index.html
+!TemplateRender/test/templates/snippet.html
+!TemplateRender/test/media/test.png
 x64/
 
 # CLion folders and files

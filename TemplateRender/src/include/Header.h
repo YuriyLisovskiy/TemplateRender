@@ -1,7 +1,7 @@
 #pragma once
-#include "../Render/TemplateRender.h"
-#include "../BL/Regex.h"
-#include "../Config/Config.h"
+#include "TemplateRender.h"
+#include "Regex.h"
+#include "Config.h"
 
 /*
 	Required to include to a file where 'TemplateRender::render()' is used.

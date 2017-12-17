@@ -1,6 +1,6 @@
 #pragma once
-#include "../BL/Parameters.h"
-#include "../DTO/Context.h"
+#include "Parameters.h"
+#include "Context.h"
 
 class LoopStatement
 {

@@ -1,5 +1,5 @@
 #pragma once
-#include "../BL/Parser.h"
+#include "Parser.h"
 #include <sstream>
 
 class TemplateRender

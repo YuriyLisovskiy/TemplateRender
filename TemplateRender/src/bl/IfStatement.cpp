@@ -1,6 +1,6 @@
-#include "IfStatement.h"
-#include "Parser.h"
-#include "Regex.h"
+#include "../include/IfStatement.h"
+#include "../include/Parser.h"
+#include "../include/Regex.h"
 #include <queue>
 
 std::string IfStatement::parse(const std::string& code, ifParams& parameters)

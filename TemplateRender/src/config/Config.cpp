@@ -1,4 +1,4 @@
-#include "Config.h"
+#include "../include/Config.h"
 
 #if defined(__unix) || defined(__unix__) || defined(__APPLE__) || defined(__MACH__) || defined(__linux__) || defined(__FreeBSD__)
 #include <unistd.h>
