@@ -6,7 +6,7 @@
 std::string HTML::read(const std::string& templateName)
 {
 	std::ifstream read(templateName);
-	std::string result("");
+	std::string result;
 	if (read.is_open())
 	{
 		result.assign((std::istreambuf_iterator<char>(read)), std::istreambuf_iterator<char>());

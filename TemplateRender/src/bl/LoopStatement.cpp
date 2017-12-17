@@ -8,7 +8,7 @@ std::string LoopStatement::parseForLoop(const std::string& code, forLoopParams& 
 	std::smatch data;
 	std::regex_search(code, data, std::regex(REGEX::FOR_REGEX));
 	std::string loopCondition = data.str();
-	if (!std::regex_search(loopCondition, data, std::regex("\\w+(\\+\\+|\\-\\-?)")))
+	if (!std::regex_search(loopCondition, data, std::regex(R"(\w+(\+\+|\-\-?))")))
 	{
 		throw RenderError("Parser::parseInline(): invalid template syntax.", __FILE__, __LINE__, loopCondition);
 	}
@@ -78,7 +78,7 @@ std::string LoopStatement::executeForLoop(const std::string& loopBody, const for
 		{
 			for (int i = 0; i < parameters.numberOfIteration; i++)
 			{
-				result += std::regex_replace(loopBody, std::regex("\\{\\{\\s*" + parameters.iteratorName + "\\s*\\}\\}"), std::to_string(i));
+				result += std::regex_replace(loopBody, std::regex(R"(\{\{\s*)" + parameters.iteratorName + R"(\s*\}\})"), std::to_string(i));
 			}
 		}
 		else
@@ -92,7 +92,7 @@ std::string LoopStatement::executeForLoop(const std::string& loopBody, const for
 		{
 			for (int i = parameters.numberOfIteration; i > 0; i--)
 			{
-				result += std::regex_replace(loopBody, std::regex("\\{\\{\\s*" + parameters.iteratorName + "\\s*\\}\\}"), std::to_string(i));
+				result += std::regex_replace(loopBody, std::regex(R"(\{\{\s*)" + parameters.iteratorName + R"(\s*\}\})"), std::to_string(i));
 			}
 		}
 		else
@@ -105,7 +105,7 @@ std::string LoopStatement::executeForLoop(const std::string& loopBody, const for
 
 std::string LoopStatement::parseForeachLoop(const std::string& code, foreachLoopParams& parameters)
 {
-	std::string result("");
+	std::string result;
 	std::smatch data;
 	std::regex_search(code, data, std::regex(REGEX::FOREACH_REGEX));
 	std::string loopStatement(data.str());
@@ -147,7 +147,7 @@ std::string LoopStatement::executeForeachLoop(const std::string& loopBody, const
 			std::vector<std::string> collection = Parser::parseCollection(collectionName);
 			for (const auto& var : collection)
 			{
-				std::string temp(std::regex_replace(loopBody, std::regex("\\{\\{\\s*" + parameters.varName + "\\s*\\}\\}"), var));
+				std::string temp(std::regex_replace(loopBody, std::regex(R"(\{\{\s*)" + parameters.varName + R"(\s*\}\})"), var));
 				result += temp;
 			}
 		}

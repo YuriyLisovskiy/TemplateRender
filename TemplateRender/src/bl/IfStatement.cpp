@@ -11,15 +11,15 @@ std::string IfStatement::parse(const std::string& code, ifParams& parameters)
 	if (std::regex_search(condition, data, std::regex(REGEX::COMPARISON_SYMBOL_REGEX)))
 	{
 		parameters.type = IfStatement::type(std::regex_replace(data.str(), std::regex("\\s+"), ""));
-		size_t offset = condition.find("(") + 1;
-		parameters.firstVar = std::string(condition.begin() + offset, condition.begin() + condition.find(" ", offset));
-		offset = condition.find(" ", condition.find(" ", condition.find("(") + 1)) + 1;
-		parameters.secondVar = std::string(condition.begin() + offset, condition.begin() + condition.find(")"));
+		size_t offset = condition.find('(') + 1;
+		parameters.firstVar = std::string(condition.begin() + offset, condition.begin() + condition.find(' ', offset));
+		offset = condition.find(' ', condition.find(' ', condition.find('(') + 1)) + 1;
+		parameters.secondVar = std::string(condition.begin() + offset, condition.begin() + condition.find(')'));
 		parameters.secondVar = std::regex_replace(parameters.secondVar, std::regex("\\W+"), "");
 	}
 	else
 	{
-		parameters.firstVar = std::string(condition.begin() + condition.find("(") + 1, condition.begin() + condition.find(")"));
+		parameters.firstVar = std::string(condition.begin() + condition.find('(') + 1, condition.begin() + condition.find(')'));
 		parameters.firstVar = std::regex_replace(parameters.firstVar, std::regex("\\W+"), "");
 		parameters.type = conditionType::none;
 	}

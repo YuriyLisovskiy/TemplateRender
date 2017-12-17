@@ -66,6 +66,6 @@ enum codeType
 {
 	forLoop,
 	foreachLoop,
-	ifStatament,
+	ifStatement,
 	comment
 };

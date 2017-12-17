@@ -7,5 +7,5 @@
 #elif defined(__unix) || defined(__unix__) || defined(__APPLE__) || defined(__MACH__) || defined(__linux__) || defined(__FreeBSD__)
 std::string getRootDir();
 #define ROOT_DIR getRootDir()
-#define LOCAL_TIME(now, t) localtime_r(&t, &now);
+#define LOCAL_TIME(now, t) localtime_r(&(t), &(now));
 #endif

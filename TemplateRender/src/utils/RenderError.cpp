@@ -6,11 +6,11 @@ std::string RenderError::TEMPLATE = "";
 RenderError::RenderError(const std::string& message, const std::string& file, const int line, const std::string& errorLine, const std::string& extraMsg)
 {
 	this->message = "\nException occurred:\n File: '" + file + "', Line: " + std::to_string(line) + "\n Message: '" + message + "'\n";
-	if (errorLine.size() > 0 && RenderError::TEMPLATE.size() > 0)
+	if (!errorLine.empty() && !RenderError::TEMPLATE.empty())
 	{
 		this->message += " Template: " + this->getError(errorLine) + '\n';
 	}
-	if (extraMsg.size() > 0)
+	if (!extraMsg.empty())
 	{
 		this->message += " Message: " + extraMsg + '\n';
 	}
@@ -24,7 +24,7 @@ const char* RenderError::what() const noexcept
 std::string RenderError::getError(const std::string& errorLine)
 {
 	std::string result("");
-	if (RenderError::TEMPLATE.size() > 0)
+	if (!RenderError::TEMPLATE.empty())
 	{
 		size_t errPos = RenderError::TEMPLATE.find(errorLine);
 		if (errPos != std::string::npos)

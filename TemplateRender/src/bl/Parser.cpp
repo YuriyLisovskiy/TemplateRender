@@ -164,7 +164,7 @@ block Parser::findBlock(size_t& pos, const std::string& code)
 			if (beginPositions.size() < endPositions.size())
 			{
 				size_t endPos = endPositions.back();
-				std::string err(code.begin() + code.rfind("{", endPos), code.begin() + endPos);
+				std::string err(code.begin() + code.rfind('{', endPos), code.begin() + endPos);
 				std::string errorLine = "tag '" + err + "' has invalid opening tag or it is missed.";
 				throw RenderError("Parser::findBlock(): invalid template syntax.", __FILE__, __LINE__, errorLine);
 			}
@@ -174,7 +174,7 @@ block Parser::findBlock(size_t& pos, const std::string& code)
 				end = endPositions.back();
 				break;
 			}
-		} while (beginPositions.size() != 0);
+		} while (!beginPositions.empty());
 		result.code += std::string(code.begin() + begin, code.begin() + end);
 		if (std::regex_search(code.begin() + end, code.end(), data, expression))
 		{
@@ -252,7 +252,7 @@ codeType Parser::getCodeType(const std::string& code)
 	}
 	else if (Parser::matchString(statement, REGEX::IF_REGEX))
 	{
-		result = codeType::ifStatament;
+		result = codeType::ifStatement;
 	}
 	else if (Parser::matchString(statement, REGEX::BEGIN_COMMENT_REGEX))
 	{
@@ -270,16 +270,16 @@ std::string Parser::parseTemplate(const std::string& code, Context* context)
 	std::string result("");
 	std::vector<block> blocks;
 	Parser::findAllBlocks(blocks, code);
-	for (std::vector<block>::iterator block = blocks.begin(); block != blocks.end(); block++)
+	for (auto& block : blocks)
 	{
-		if ((*block).before.size() == 0 && (*block).code.size() == 0)
+		if ((block.before.size() == 0) && (block.code.size() == 0))
 		{
-			result += (*block).after;
+			result += block.after;
 			return result;
 		}
-		result += (*block).before;
-		result += Parser::parseTemplate(Parser::executeCode((*block).code, context), context);
-		result += (*block).after;
+		result += block.before;
+		result += Parser::parseTemplate(Parser::executeCode(block.code, context), context);
+		result += block.after;
 	}
 	return result;
 }
@@ -289,7 +289,7 @@ std::string Parser::executeCode(const std::string& code, Context* context)
 	forLoopParams forParameters;
 	ifParams ifParameters;
 	foreachLoopParams foreachParameters;
-	std::string body(""), result("");
+	std::string body, result;
 	switch (Parser::getCodeType(code))
 	{
 	case codeType::forLoop:
@@ -300,7 +300,7 @@ std::string Parser::executeCode(const std::string& code, Context* context)
 		body = LoopStatement::parseForeachLoop(code, foreachParameters);
 		result = LoopStatement::executeForeachLoop(body, foreachParameters, context);
 		break;
-	case codeType::ifStatament:
+	case codeType::ifStatement:
 		body = IfStatement::parse(code, ifParameters);
 		result = IfStatement::execute(body, ifParameters, context);
 		break;
@@ -316,14 +316,14 @@ std::string Parser::executeCode(const std::string& code, Context* context)
 std::vector<std::string> Parser::parseCollection(const std::string& collection)
 {
 	std::vector<std::string> result;
-	if (collection.size() > 0)
+	if (!collection.empty())
 	{
-		std::regex expression("\\~\\~\\|\\(.*\\)\\|\\~\\~");
+		std::regex expression(R"(\~\~\|\(.*\)\|\~\~)");
 		std::sregex_iterator begin(collection.begin(), collection.end(), expression), end;
 		for (auto it = begin; it != end; it++)
 		{
 			std::string object(it->str());
-			result.push_back(std::string(object.begin() + 4, object.end() - 4));
+			result.emplace_back(std::string(object.begin() + 4, object.end() - 4));
 		}
 	}
 	return result;

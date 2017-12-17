@@ -5,7 +5,7 @@
 
 void TEST_CASE()
 {
-	srand(time(nullptr));
+	srand((unsigned)time(nullptr));
 	std::vector<int> vec;
 	for (size_t i = 0; i < 10; i++)
 	{

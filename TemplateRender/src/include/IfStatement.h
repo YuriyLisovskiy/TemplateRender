@@ -8,7 +8,7 @@ class IfStatement
 {
 public:
 	// Info:
-	// Analyzes 'if' statemet's parameters and returns its body.
+	// Analyzes 'if' statement's parameters and returns its body.
 	static std::string parse(const std::string& code, ifParams& parameters);
 
 	// Info:
@@ -47,7 +47,7 @@ private:
 			result = (left != right);
 			break;
 		case conditionType::none:
-			if (std::regex_replace(context->getByKey(parameters.firstVar), std::regex("\\s+"), "") != "")
+			if (std::regex_replace(context->getByKey(parameters.firstVar), std::regex(R"(\s+)"), "") != "")
 			{
 				result = true;
 			}
