@@ -31,25 +31,23 @@
 *.out
 *.app
 
-#vs
-TemplateRender/.vs/
-/.vs
-
-#Debug
-TemplateRender/Debug/
-TemplateRender/Tests/Templates/*.html
+# Visual Studio folders and files
+Debug/
+.vs
 *.html
 *.txt
 *.png
 *.jbg
 *.jpeg
 *.bmp
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
 !TemplateRender/Tests/Templates/index.html
 !TemplateRender/Tests/Templates/snippet.html
 !TemplateRender/Tests/Media/test.png
-#Debug/
-TemplateRender/x64/Debug/
-x64/Debug/
+x64/
 
 # CLion folders and files
 .idea/
