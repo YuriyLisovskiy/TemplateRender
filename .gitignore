@@ -50,3 +50,8 @@ TemplateRender/Tests/Templates/*.html
 #Debug/
 TemplateRender/x64/Debug/
 x64/Debug/
+
+# CLion folders and files
+.idea/
+cmake-build-debug/
+!CMakeLists.txt

@@ -17,7 +17,7 @@ RenderError::RenderError(const std::string& message, const std::string& file, co
 	}
 }
 
-const char* RenderError::what() const
+const char* RenderError::what() const noexcept
 {
 	return this->message.c_str();
 }

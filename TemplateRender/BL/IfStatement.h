@@ -1,4 +1,6 @@
 #pragma once
+
+#include <regex>
 #include "Parameters.h"
 #include "../DTO/Context.h"
 
