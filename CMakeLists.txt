@@ -24,5 +24,4 @@ add_executable(template_render
 		TemplateRender/Utils/Header.h
 		TemplateRender/Utils/RenderError.cpp
 		TemplateRender/Utils/RenderError.h
-		TemplateRender/AppStart.cpp
-		README.md)
+		TemplateRender/AppStart.cpp TemplateRender/Config/Config.cpp)

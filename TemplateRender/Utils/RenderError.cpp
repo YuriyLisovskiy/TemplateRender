@@ -1,5 +1,4 @@
 #include "RenderError.h"
-#include "../BL/Regex.h"
 #include <iostream>
 
 std::string RenderError::TEMPLATE = "";

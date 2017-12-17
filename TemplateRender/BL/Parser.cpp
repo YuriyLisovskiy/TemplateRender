@@ -4,8 +4,6 @@
 #include "IfStatement.h"
 #include "HTML.h"
 #include "../Config/Config.h"
-#include <regex>
-#include <algorithm>
 #include <queue>
 
 bool Parser::matchString(const std::string& str, const std::string& regexStr)
@@ -320,7 +318,7 @@ std::vector<std::string> Parser::parseCollection(const std::string& collection)
 	std::vector<std::string> result;
 	if (collection.size() > 0)
 	{
-		std::regex expression("\\~\\~\\|\\(\.*\\)\\|\\~\\~");
+		std::regex expression("\\~\\~\\|\\(.*\\)\\|\\~\\~");
 		std::sregex_iterator begin(collection.begin(), collection.end(), expression), end;
 		for (auto it = begin; it != end; it++)
 		{

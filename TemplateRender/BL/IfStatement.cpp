@@ -1,8 +1,6 @@
 #include "IfStatement.h"
-#include "../Utils/RenderError.h"
 #include "Parser.h"
 #include "Regex.h"
-#include <regex>
 #include <queue>
 
 std::string IfStatement::parse(const std::string& code, ifParams& parameters)

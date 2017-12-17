@@ -4,8 +4,8 @@
 #include <direct.h>
 #define ROOT_DIR std::string(_getcwd(0, 0)) + "/"
 #elif defined(__unix) || defined(__unix__) || defined(__APPLE__) || defined(__MACH__) || defined(__linux__) || defined(__FreeBSD__)
-#include <unistd.h>
-#define ROOT_DIR std::string(getcwd(0, 0)) + "/"
+std::string getRootDir();
+#define ROOT_DIR getRootDir()
 #endif
 
 namespace CONFIG

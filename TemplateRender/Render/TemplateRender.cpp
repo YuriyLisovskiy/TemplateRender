@@ -1,7 +1,5 @@
 #include "TemplateRender.h"
 #include "../BL/HTML.h"
-#include "../BL/LoopStatement.h"
-#include "../BL/Regex.h"
 #include "../Config/Config.h"
 #include <iostream>
 
