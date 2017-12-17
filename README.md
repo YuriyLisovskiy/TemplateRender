@@ -5,26 +5,24 @@
 Download as a zip archive or clone the repository:
 
 ```
-git clone https://github.com/lnupmi11/template-render.git
+git clone https://github.com/YuriyLisovskiy/template-render.git
 ```
-Move to the project folder and switch the branch into dev:
+Move to the project folder:
 ```
 cd template-render
-git checkout dev
 ```
-Use `TemplateRender.sln` for opening the project in Microsoft Visual Studio.
 
 ### Usage
 
-1. Include `Utils/Header.h` to a file where `TemplateRender::render()` is used.
-2. In `Config/Config.h` file specify the paths `TEMPLATE_DIR` for template search, `ENDPOINT_DIR` for rendered HTML document 
+1. Include `src/include/Header.h` to a file where `TemplateRender::render()` is used.
+2. In `src/include/Config.h` file specify the paths `TEMPLATE_DIR` for template search, `ENDPOINT_DIR` for rendered HTML document 
 and `MEDIA_DIR` for media files search.
 
     Default values which are used for testing:
     ```
-        TEMPLATE_DIR: "ROOT_DIR/Tests/Templates/"
-        ENDPOINT_DIR: "ROOT_DIR/Tests/"
-        MEDIA_DIR: "ROOT_DIR/Tests/Media/"
+        TEMPLATE_DIR: "ROOT_DIR/test/templates/"
+        ENDPOINT_DIR: "ROOT_DIR/test/"
+        MEDIA_DIR: "ROOT_DIR/test/media/"
     ```
 3. Create a context object using vector of pairs of keys and values (or do not create if it is not used).
     > \* Keys and values must have `std::string` type, use `TemplateRender::str()` to convert any data to string.
@@ -51,7 +49,7 @@ the first is template name, the second is rendered HTML document name, the third
     ```
         TemplateRender::render("index.html", "completed.html", contextObject);
     ```
-6. Build and run the project using Microsoft Visual Studio tools.
+6. Build and run the project.
 7. Find rendered HTML document in the `ENDPOINT_DIR` directory that was specified earlier.  
 
 ### Available syntax
