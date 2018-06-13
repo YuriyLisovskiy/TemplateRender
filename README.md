@@ -130,11 +130,5 @@ the first is template name, the second is rendered HTML document name, the third
 ### Authors
 
 * **[Yuriy Vasko](https://github.com/YuraVasko)**
-* **[Olya Pastushchak](https://github.com/OlyaPastushchak)**
 * **[Yuriy Lisovskiy](https://github.com/YuriyLisovskiy)**
-* **[Natalia Pachva](https://github.com/nataliapachva)**
-* **[Andriy Dubyk](https://github.com/andrewDubyk)**
-* **[Andrii Vaskiv](https://github.com/AndriiVaskiv)**
-* **[Oleg Zhuk](https://github.com/NSArray47)**
-
 > Note: the project is not tested completely, so, there still can be bugs.
