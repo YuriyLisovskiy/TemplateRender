@@ -2,14 +2,14 @@
 
 ### Download and Open
 
-Download as a zip archive or clone the repository:
+Download as a zip archive or clone a repository:
 
 ```
-git clone https://github.com/YuriyLisovskiy/template-render.git
+git clone https://github.com/YuriyLisovskiy/TemplateRender.git
 ```
 Move to the project folder:
 ```
-cd template-render
+cd TemplateRender
 ```
 
 ### Usage
@@ -126,9 +126,15 @@ the first is template name, the second is rendered HTML document name, the third
     ```
         <img src="{% #static 'some_image.png' %}" />
     ```
+    
+> Note: the project is not tested completely, so, there still can be bugs.
 
 ### Authors
 
-* **[Yuriy Vasko](https://github.com/YuraVasko)**
-* **[Yuriy Lisovskiy](https://github.com/YuriyLisovskiy)**
-> Note: the project is not tested completely, so, there still can be bugs.
+
+* **[Yuriy Lisovskiy](https://github.com/YuriyLisovskiy)** - the majority of the project
+* [Yuriy Vasko](https://github.com/YuraVasko)
+* [Andrii Vaskiv](https://github.com/AndriiVaskiv)
+* [Andriy Dubyk](https://github.com/andrewDubyk)
+* [Natalia Pachva](https://github.com/nataliapachva)
+* [Oleg Zhuk](https://github.com/NSArray47)
